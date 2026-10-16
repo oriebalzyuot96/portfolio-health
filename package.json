@@ -1,0 +1,10 @@
+{
+  "name": "portfolio-health",
+  "version": "1.0.0",
+  "description": "Health checker for a personal portfolio website: broken links, missing metadata, missing files.",
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "bin": { "portfolio-health": "src/cli.js" },
+  "scripts": { "test": "node --test", "check": "node src/cli.js" },
+  "license": "MIT"
+}

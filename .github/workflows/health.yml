@@ -1,0 +1,29 @@
+name: Portfolio health
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: Site to check
+        default: https://oriebalzyuot96.github.io
+permissions:
+  contents: read
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Run health check
+        env:
+          BASE_URL: ${{ inputs.base_url || 'https://oriebalzyuot96.github.io' }}
+        run: node src/cli.js "$BASE_URL" --config portfolio-health.json --out reports
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-report
+          path: reports

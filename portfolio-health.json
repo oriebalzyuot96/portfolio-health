@@ -1,0 +1,13 @@
+{
+  "baseUrl": "https://oriebalzyuot96.github.io",
+  "maxPages": 60,
+  "concurrency": 4,
+  "timeoutMs": 10000,
+  "requiredFiles": ["/Orieb-Alzyuot-CV.pdf"],
+  "pageWeightBytes": 1572864,
+  "allow": [
+    "https://www.linkedin.com/",
+    "https://twitter.com/",
+    "https://x.com/"
+  ]
+}
